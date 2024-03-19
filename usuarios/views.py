@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.contrib.messages import constants
 from django.http import HttpResponse
@@ -48,4 +49,21 @@ def cadastro(request):
         return redirect('/usuarios/cadastro')
     
 def login(request):
-    return HttpResponse("Testando login")
+    if request.method == "GET":
+        return render(request, 'login.html')
+    
+    elif request.method == "POST":
+        username = request.POST.get('username')
+        senha = request.POST.get('senha')
+        user = authenticate(username=username, password=senha, )
+        
+        if user:
+            login(request, user)
+            return redirect('/')
+        else:
+            #avisa que o username ou senha esta invalido
+            pass
+        
+        
+        
+        return HttpResponse(f'{senha} e {username}')
