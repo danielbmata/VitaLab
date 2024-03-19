@@ -13,6 +13,15 @@
     <br>
     <br>
     <div class="container">
+
+        <!--MESSAGES-->
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert {{message.tags}}">{{message}}</div>
+            {% endfor %}
+        {% endif %}
+
+
         <h3 class="font-destaque">Cadastre-se</h3>
 
         <div class="row">
