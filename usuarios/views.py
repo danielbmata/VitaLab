@@ -46,3 +46,6 @@ def cadastro(request):
             return redirect('/usuarios/cadastro')
         
         return redirect('/usuarios/cadastro')
+    
+def login(request):
+    return HttpResponse("Testando login")
