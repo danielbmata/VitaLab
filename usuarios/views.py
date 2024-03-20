@@ -66,4 +66,4 @@ def logar(request):
         
         
         
-        return HttpResponse(f'{senha} e {username}')
+        
