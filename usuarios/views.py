@@ -48,7 +48,7 @@ def cadastro(request):
         
         return redirect('/usuarios/cadastro')
     
-def login(request):
+def logar(request):
     if request.method == "GET":
         return render(request, 'login.html')
     
@@ -61,8 +61,8 @@ def login(request):
             login(request, user)
             return redirect('/')
         else:
-            #avisa que o username ou senha esta invalido
-            pass
+            messages.error(request, 'Username ou senha inválidos.')
+            return redirect("/usuarios/login")
         
         
         
